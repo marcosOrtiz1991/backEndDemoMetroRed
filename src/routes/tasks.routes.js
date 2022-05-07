@@ -4,21 +4,13 @@ const controller = require ('../controllers/task.controller');
 
 router.get('/list',controller.list);
 
-router.post('/create',(req,res)=>{
-    res.send('crear especialidades');
-})
+router.post('/create',controller.create)
 
-router.put('/update',(req,res)=>{
-    res.send('editar especialidades');
-})
+router.put('/update/:id',controller.update)
 
-router.delete('/delete',(req,res)=>{
-    res.send('eliminar especialidades');
-})
+router.delete('/delete/:id',controller.delete)
 
-router.get('/list/10',(req,res)=>{
-    res.send('listar una especilidad');
-})
+router.get('/listOne/:id',controller.listOne);
 
 
 
