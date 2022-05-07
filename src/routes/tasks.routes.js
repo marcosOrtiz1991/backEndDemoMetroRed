@@ -1,9 +1,8 @@
 const { Router } = require ('express');
 const router = Router();
+const controller = require ('../controllers/task.controller');
 
-router.get('/list',(req,res)=>{
-    res.send('listar especialidades');
-})
+router.get('/list',controller.list);
 
 router.post('/create',(req,res)=>{
     res.send('crear especialidades');

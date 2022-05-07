@@ -1,12 +1,37 @@
 const express = require('express');
 const morgan = require('morgan');
 const taskRoutes = require ('./routes/tasks.routes.js');
+const mysql = require ('mysql');
+const myConnection = require ('express-myconnection');
+
 
 
 const app = express();
+/*app.use(myConnection(mysql,{
+    user:'admin',
+    password:'barcelona1991',
+    host:'localhost',
+    port:3306,
+    database:'mydb'
+},'single'));*/
+
+app.use(myConnection(mysql,{
+    user:'b3c05c0d7f2416',
+    password:'162c0ff3',
+    host:'us-cdbr-east-05.cleardb.net',
+    port:3306,
+    database:'heroku_578789b8b08ad99'
+},'single'));
+
 app.use(morgan('dev'));
-app.use(taskRoutes)
+app.use('/',taskRoutes)
 puerto = process.env.PORT || 3000;
 
 app.listen(puerto);
 console.log('listen in port 3000');
+
+//middleware
+
+
+
+
