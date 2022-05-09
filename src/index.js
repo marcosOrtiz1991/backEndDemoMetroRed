@@ -1,6 +1,8 @@
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
 const taskRoutes = require ('./routes/tasks.routes.js');
+const doctorRoutes = require ('./routes/doctor.router.js');
 const mysql = require ('mysql');
 const myConnection = require ('express-myconnection');
 
@@ -24,12 +26,14 @@ app.use(myConnection(mysql,{
 },'single'));*/
 
 app.use(morgan('dev'));
+app.use(cors());
 app.use(express.json());
 app.use('/',taskRoutes)
-puerto = process.env.PORT || 3000;
+app.use('/doctor/',doctorRoutes)
+puerto = process.env.PORT || 4000;
 
 app.listen(puerto);
-console.log('listen in port 3000');
+console.log('listen in port 4000');
 
 //middleware
 
