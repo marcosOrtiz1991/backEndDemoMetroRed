@@ -9,14 +9,14 @@ const myConnection = require ('express-myconnection');
 
 
 const app = express();
-app.use(myConnection(mysql,{
+/*app.use(myConnection(mysql,{
     user:'admin',
     password:'barcelona1991',
     host:'localhost',
     port:3306,
     database:'mydb'
 },'single'));
-
+*/
 app.use(myConnection(mysql,{
     user:'b3c05c0d7f2416',
     password:'162c0ff3',
@@ -24,14 +24,14 @@ app.use(myConnection(mysql,{
     port:3306,
     database:'heroku_578789b8b08ad99'
 },'single'));
-/*
+
 app.use(morgan('dev'));
 app.use(cors());
 app.use(express.json());
 app.use('/',taskRoutes)
 app.use('/doctor/',doctorRoutes)
 puerto = process.env.PORT || 4000;
-*/
+
 app.listen(puerto);
 console.log('listen in port 4000');
 
