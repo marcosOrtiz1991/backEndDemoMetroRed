@@ -45,7 +45,7 @@ controller.create = (req,res)=>{
    * Método que actulíza un doctor según su id.
    * @author: Marcos Ortiz
    * @version: 1.0 6/05/2022
-   * @param: id
+   * @param: doctor_id
 */
 controller.update = (req,res)=>{
     const id = req.params.id
