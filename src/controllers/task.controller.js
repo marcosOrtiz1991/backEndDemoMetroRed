@@ -25,7 +25,6 @@ controller.list =  (req,res)=>{
 controller.create = (req,res)=>{
     const body = req.body;
     const name = body.nombre
-    
     req.getConnection(async(err,conn) => {
         const result= await  conn.query("insert into especialidades (esp_nombre) values ('"+name+"')",(err, rows) =>{
               if (err){
@@ -47,9 +46,7 @@ controller.update = (req,res)=>{
     const id = req.params.id
     const body = req.body;
     const name = body.nombre
-    console.log(id);
-    console.log('el nomnbre es:');
-    console.log(name);
+ 
     req.getConnection(async(err,conn) => {
       const result= await  conn.query("update especialidades set esp_nombre = '" +name+ "' where esp_id = "+id,(err, rows) =>{
             if (err){

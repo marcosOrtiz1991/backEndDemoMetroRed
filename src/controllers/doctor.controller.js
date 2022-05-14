@@ -24,14 +24,17 @@ controller.list =  (req,res)=>{
 */
 controller.create = (req,res)=>{
     const body = req.body;
-    const name = body.nombre
-    const cedula = body.cedula
-    const foto = body.foto
-    const ciudad = body.ciudad
-    const especialidad = body.especialidad
+    const name = body.doc_nombre
+    const cedula = body.doc_cedula
+    const foto = body.doc_especialidad
+    const ciudad = body.doc_ciudad
+    const especialidad = body.doc_especialidad
+
+    console.log(body)
     
     req.getConnection(async(err,conn) => {
-        const result= await  conn.query("insert into doctores values ('"+name+"' '"+cedula+"' '"+foto+"' '"+ciudad+"' '"+especialidad +"' )",(err, rows) =>{
+        const result= await  conn.query("insert into doctores (doc_nombre, doc_cedula, doc_foto, doc_ciudad, doc_especialidad)"+
+        "values ('"+name+"','"+cedula+"','"+foto+"','"+ciudad+"','"+especialidad +"' )",(err, rows) =>{
               if (err){
                   res.send('error');
               }
@@ -50,14 +53,15 @@ controller.create = (req,res)=>{
 controller.update = (req,res)=>{
     const id = req.params.id
     const body = req.body;
-    const name = body.nombre
-    const cedula = body.cedula
-    const foto = body.foto
-    const ciudad = body.ciudad
-    const especialidad = body.especialidad
-
+    const name = body.doc_nombre
+    const cedula = body.doc_cedula
+    const foto = body.doc_especialidad
+    const ciudad = body.doc_ciudad
+    const especialidad = body.doc_especialidad
+    console.log(body)
+    console.log(id)
     req.getConnection(async(err,conn) => {
-      const result= await  conn.query("update doctores set doc_nombre = '" +name+ "' , doc_cedula = '" +cedula+ "' , doc_foto = '" +foto+ "' , doc_ciudad = '" +ciudad+ "' , doc_especialidad = '" +especialidad+ " where doc_id = "+id,(err, rows) =>{
+      const result= await  conn.query("update doctores set doc_nombre = '" +name+ "' , doc_cedula = '" +cedula+ "' , doc_foto = '" +foto+ "' , doc_ciudad = '" +ciudad+ "' , doc_especialidad = '" +especialidad+ "' where doc_id = "+id,(err, rows) =>{
             if (err){
                 res.json(err);
             }
@@ -100,7 +104,7 @@ controller.listOne =  (req,res)=>{
             if (err){
                 res.json(err);
             }
-            res.json(rows);
+            res.json(rows[0]);
         });
     });
   
