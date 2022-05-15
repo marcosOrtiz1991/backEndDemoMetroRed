@@ -7,24 +7,25 @@ const mysql = require ('mysql');
 const myConnection = require ('express-myconnection');
 const bodyParser = require('body-parser');
 
-
 const app = express();
+
+/*
 app.use(myConnection(mysql,{
     user:'admin',
     password:'barcelona1991',
     host:'localhost',
     port:3306,
     database:'mydb'
-},'single'));
+},'single'));*/
 
-/*
+
 app.use(myConnection(mysql,{
     user:'b3c05c0d7f2416',
     password:'162c0ff3',
     host:'us-cdbr-east-05.cleardb.net',
     port:3306,
     database:'heroku_578789b8b08ad99'
-},'single'));*/
+},'single'));
 
 app.use(morgan('dev'));
 app.use(cors());
